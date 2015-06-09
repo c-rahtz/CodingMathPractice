@@ -1,3 +1,8 @@
+function render() {
+	requestAnimationFrame( render );
+	renderer.render( scene, camera );
+}
+
 function init3d() {
 	console.log("init3d");
 	var scene = new THREE.Scene(),
@@ -12,7 +17,9 @@ function init3d() {
 		document.body.appendChild(renderer.domElement);
 
 		scene.add(cube);
-		camera.position.z = -5;
+		camera.position.z = 5;
+
+		render();
 
 }
 window.onload = function() {
