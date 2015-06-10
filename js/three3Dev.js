@@ -4,16 +4,22 @@ function init3d() {
         camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000),
         renderer = new THREE.WebGLRenderer(),
         geometry = new THREE.BoxGeometry(1, 1, 1),
-        material = new THREE.MeshBasicMaterial({
-            color: 0xab2222
+        // material = new THREE.MeshBasicMaterial({
+        //     color: 0xab2222
+        // }),
+        material = new THREE.MeshDepthMaterial({
+            wireframe: true
         }),
         cube = new THREE.Mesh(geometry, material),
+        clock = new THREE.Clock();
 
         render = function() {
-            console.log("render, render, render...");
+            var t = clock.getElapsedTime();
+            //console.log("time: " + t);
             requestAnimationFrame(render);
             cube.rotation.x += 0.01;
             cube.rotation.y += 0.01;
+            cube.position.y = Math.sin(t);
             renderer.render(scene, camera);
         }
 
@@ -24,15 +30,10 @@ function init3d() {
     scene.add(cube);
     camera.position.z = 5;
 
+
     render();
 
 }
 window.onload = function() {
-    // var cvas = document.getElementById('canvas'),
-    //     context = canvas.getContext("2d"),
-    //     width = canvas.width = window.innerWidth,
-    //     height = canvas.height = window.innerHeight;
-    // 	context.fillRect(0, 0, width, height);
-
     init3d();
 }
