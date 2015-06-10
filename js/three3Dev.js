@@ -14,6 +14,7 @@ function init3d() {
         clock = new THREE.Clock();
 
         render = function() {
+            // for reference: http://stackoverflow.com/questions/11363170/units-of-three-js-calculating-rotation-orbit-speeds
             var t = clock.getElapsedTime();
             //console.log("time: " + t);
             requestAnimationFrame(render);
