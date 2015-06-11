@@ -4,10 +4,8 @@ function init3d() {
         camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000),
         renderer = new THREE.WebGLRenderer(),
         geometry = new THREE.BoxGeometry(1, 1, 1),
-        // material = new THREE.MeshBasicMaterial({
-        //     color: 0xab2222
-        // }),
-        material = new THREE.MeshDepthMaterial({
+        material = new THREE.MeshBasicMaterial({
+            color: 0xab2222,
             wireframe: true
         }),
         cube = new THREE.Mesh(geometry, material),
