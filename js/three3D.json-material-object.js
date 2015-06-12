@@ -38,7 +38,7 @@ function init3d() {
         console.log(materials);
         var material = new THREE.MeshFaceMaterial(materials);
         obj = new THREE.Mesh(geometry, material);
-        console.log(obj.width);
+        console.log(obj.geometry);
         group.add(obj);
         obj.position.x = -1;
         obj.rotation.x = Math.PI/2;
