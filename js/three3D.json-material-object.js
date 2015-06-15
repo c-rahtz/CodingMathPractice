@@ -17,7 +17,7 @@ function init3d() {
         objLoader = new THREE.JSONLoader(),
         obj,
         aLight1 = new THREE.AreaLight(0xffffff),
-        pLight1 = new THREE.PointLight(0x00ddee, 1, 40),
+        pLight1 = new THREE.PointLight(0x00ff00, 1, 40),
         amLight = new THREE.AmbientLight(0x404040, 3),
         group = new THREE.Group();
 
@@ -34,13 +34,13 @@ function init3d() {
 
 
 
-    objLoader.load('objects/MF-material.json', function(geometry, materials) {
+    objLoader.load('objects/Craig-WR.json', function(geometry, materials) {
         console.log(materials);
         var material = new THREE.MeshFaceMaterial(materials);
         obj = new THREE.Mesh(geometry, material);
         console.log(obj.geometry);
         group.add(obj);
-        obj.position.x = -1;
+        obj.position.x = -2;
         obj.rotation.x = Math.PI/2;
         scene.add(group);
         console.log("obj x: " + obj.position.x);
@@ -62,7 +62,7 @@ function init3d() {
     document.body.appendChild(renderer.domElement);
 
     //scene.add(cube);
-    camera.position.z = 5;
+    camera.position.z = 8;
 
 
 
